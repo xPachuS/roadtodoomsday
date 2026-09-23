@@ -5,7 +5,7 @@
   Cada título:
     id       identificador único, sin espacios (se usa para guardar el progreso)
     era      0 = Saga del Infinito, 1 = Saga del Multiverso (índice en "eras")
-    level    1 = imprescindible, 2 = recomendada
+    level    1 = imprescindible, 2 = recomendada, 3 = opcional (se ve solo al elegir "+ Opcionales")
     kind     "m" = película, "s" = serie
     title    nombre que se muestra
     year     año o rango de años
@@ -152,6 +152,12 @@ window.MCU = {
       why: "Deja al multiverso estable, y Loki está confirmado en Doomsday."
     },
     {
+      id: "the-marvels", era: 1, level: 3, kind: "m", title: "The Marvels", year: "2023", thread: "p", minutes: 105,
+      neutral: "Carol Danvers, Kamala Khan y Monica Rambeau ven cómo sus poderes se entrelazan.",
+      spoiler: "Monica acaba en un universo alternativo con mutantes, y la escena final presenta a Beast.",
+      why: "Introduce al Beast de Kelsey Grammer, que vuelve en Doomsday. Teyonah Parris (Monica) no está anunciada."
+    },
+    {
       id: "deadpool-wolverine", era: 1, level: 1, kind: "m", title: "Deadpool & Wolverine", year: "2024", thread: "p", minutes: 128,
       neutral: "Deadpool y Wolverine forman equipo para salvar un universo.",
       spoiler: "Salvan la línea de Fox de un funcionario del TVA que la borra y derrotan a Cassandra Nova.",
@@ -174,6 +180,12 @@ window.MCU = {
       neutral: "Los 4 Fantásticos defienden su mundo alternativo de Galactus.",
       spoiler: "La escena final muestra a Doom acercándose al joven Franklin Richards.",
       why: "Pedro Pascal, Vanessa Kirby, Joseph Quinn y Ebon Moss-Bachrach están confirmados."
+    },
+    {
+      id: "brand-new-day", era: 1, level: 3, kind: "m", title: "Spider-Man: Brand New Day", year: "2026", thread: "p", minutes: 130,
+      neutral: "Peter Parker lucha contra el crimen a tiempo completo en un mundo que ya no lo recuerda.",
+      spoiler: "Presenta a Jean Grey (Sadie Sink) como mutante del universo principal, y la escena final localiza a un Spider-Man en el espacio.",
+      why: "Yelena, confirmada en Doomsday, aparece aquí. La escena final parece apuntar al próximo cruce. Tom Holland no está anunciado."
     }
   ]
 };
