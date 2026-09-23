@@ -226,6 +226,8 @@ textarea::placeholder { color: var(--ink-2); opacity: .8; }
 .pill { display: inline-block; padding: 2px 7px; border-radius: 3px; font: 500 .66rem/1.3 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
 .pill.p1 { background: var(--brass-soft); color: var(--on-brass-soft); }
 .pill.p2 { border: 1px solid var(--line-2); color: var(--ink-2); }
+.pill.p3 { border: 1px dashed var(--line-2); color: var(--ink-2); }
+.item.opt .card { border-style: dashed; }
 .upto { align-self: flex-start; margin: 0 8px 6px 12px; padding: 5px 4px; background: none; border: 0; cursor: pointer; font: 500 .74rem var(--f-mono); color: var(--doom); text-decoration: underline; text-underline-offset: 3px; }
 .upto:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
 @media (hover: hover) {
@@ -251,6 +253,11 @@ textarea::placeholder { color: var(--ink-2); opacity: .8; }
 
 @media (prefers-reduced-motion: no-preference) {
   .node, .card, .seg span, .tog span, .tk { transition: background-color .15s, border-color .15s, color .15s, stroke .2s; }
+}
+@media (max-width: 560px) {
+  /* Con tres opciones el selector no cabe en una fila: cada opción pasa a ser un botón suelto */
+  .seg { flex-wrap: wrap; gap: 6px; border: 0; overflow: visible; }
+  .seg span { border: 1px solid var(--line-2); border-radius: 6px; }
 }
 @media (max-width: 720px) {
   .hero { grid-template-columns: 1fr; }
