@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Las 24 películas y series del MCU que preparan Avengers: Doomsday, en orden cronológico, con progreso guardado y ritmo semanal.">
+<meta name="color-scheme" content="light dark">
+<title>Camino a Doomsday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <p class="eyebrow">MCU · 2008 a 2026 · Estreno el 18 de diciembre</p>
+      <h1>Camino a Doomsday</h1>
+      <p class="lede">Las 24 películas y series que preparan Avengers: Doomsday, en el orden de la historia. Marca lo que ya has visto y la página calcula cuánto te queda.</p>
+      <dl class="stats">
+        <div><dt>Vistos</dt><dd><span id="st-seen">0</span> de <span id="st-total">24</span></dd></div>
+        <div><dt>Por ver</dt><dd id="st-left">0 h</dd></div>
+        <div><dt>Ritmo hasta el estreno</dt><dd id="st-pace">0 h/semana</dd></div>
+      </dl>
+    </div>
+    <figure class="clock">
+      <div class="clock-face">
+        <svg viewBox="0 0 240 240" role="img" aria-labelledby="clk-t">
+          <title id="clk-t">Reloj de Doomsday con una marca por título; las marcas verdes son los títulos vistos</title>
+          <g id="ticks"></g>
+          <path d="M120 1 L124.5 8 L120 15 L115.5 8 Z" fill="var(--brass)"></path>
+        </svg>
+        <div class="clock-c">
+          <span class="clock-n" id="days">0</span>
+          <span class="clock-l">días para<br>el estreno</span>
+        </div>
+      </div>
+      <figcaption>Cada marca es un título. Larga: imprescindible. Corta: recomendada. Verde: visto.</figcaption>
+    </figure>
+  </header>
+
+  <section class="controls" aria-label="Filtros de la lista">
+    <div class="grp">
+      <span class="grp-l" id="g-lv">Nivel</span>
+      <div class="seg" role="radiogroup" aria-labelledby="g-lv">
+        <label><input type="radio" name="lv" id="lv-all" value="all" checked><span>Todas <b id="n-lv-all"></b></span></label>
+        <label><input type="radio" name="lv" id="lv-ess" value="ess"><span>Imprescindibles <b id="n-lv-ess"></b></span></label>
+      </div>
+    </div>
+    <div class="grp">
+      <span class="grp-l" id="g-fmt">Formato</span>
+      <div class="seg" role="radiogroup" aria-labelledby="g-fmt">
+        <label><input type="radio" name="fmt" id="fmt-all" value="all" checked><span>Todo</span></label>
+        <label><input type="radio" name="fmt" id="fmt-m" value="m"><span>Películas <b id="n-fmt-m"></b></span></label>
+        <label><input type="radio" name="fmt" id="fmt-s" value="s"><span>Series <b id="n-fmt-s"></b></span></label>
+      </div>
+    </div>
+    <label class="tog"><input type="checkbox" id="hide-seen"><span>Ocultar vistas</span></label>
+    <span class="spacer"></span>
+    <div class="reset" id="reset-box" hidden>
+      <button type="button" class="link" id="reset">Borrar progreso</button>
+      <span id="reset-ask" hidden>
+        ¿Borrar <b id="reset-n">0</b> marcados?
+        <button type="button" class="link danger" id="reset-yes">Sí, borrar</button>
+        <button type="button" class="link" id="reset-no">Cancelar</button>
+      </span>
+    </div>
+  </section>
+
+  <p class="sr" id="live" aria-live="polite"></p>
+
+  <main>
+    <div id="eras"></div>
+    <p class="empty" id="empty" hidden>No queda nada por ver con estos filtros. Nos vemos en cines el 18 de diciembre.</p>
+
+    <section class="final" aria-label="Estreno">
+      <ol class="list">
+        <li class="item">
+          <span class="node" aria-hidden="true"></span>
+          <div class="card">
+            <span class="ttl">Avengers: Doomsday</span>
+            <span class="dsc">Tres universos contra Victor von Doom.</span>
+            <span class="meta"><span>18 de diciembre de 2026</span><span>En cines</span></span>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Selección basada en la lista oficial de 15 títulos de Disney+, ampliada con títulos recomendados por MCU Watchlist. Las duraciones son aproximadas y las series cuentan por temporada completa.</p>
+    <p>Fuentes:
+      <a href="https://www.nme.com/news/film/every-marvel-film-and-disney-tv-show-to-watch-before-avengers-doomsday-3964787">NME</a>,
+      <a href="https://deadline.com/gallery/15-things-to-watch-before-avengers-doomsday-marvel-disney-plus/">Deadline</a>,
+      <a href="https://marvelwatchlist.com/before-doomsday/">MCU Watchlist</a>.
+      Tu progreso se guarda solo en este navegador.
+    </p>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
