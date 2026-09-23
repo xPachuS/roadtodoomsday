@@ -3,23 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Las 24 películas y series del MCU que preparan Avengers: Doomsday, en orden cronológico, con progreso guardado y ritmo semanal.">
-<meta name="color-scheme" content="light dark">
 <title>Camino a Doomsday</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<meta name="description" content="Las 25 películas y series del MCU que preparan Avengers: Doomsday, en el orden de la historia, con progreso guardado y ritmo semanal.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EDEFEC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1512" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<!-- Para las vistas previas al compartir el enlace: cambia TU-USUARIO y el nombre del repositorio -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Camino a Doomsday">
+<meta property="og:description" content="Las 25 películas y series del MCU que preparan Avengers: Doomsday, en el orden de la historia.">
+<meta property="og:url" content="https://TU-USUARIO.github.io/camino-a-doomsday/">
+<meta property="og:image" content="https://TU-USUARIO.github.io/camino-a-doomsday/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<noscript><p style="padding:16px;font-family:system-ui,sans-serif">Esta página necesita JavaScript para mostrar la lista y guardar tu progreso.</p></noscript>
+
 <div class="wrap">
   <header class="hero">
     <div>
       <p class="eyebrow">MCU · 2008 a 2026 · Estreno el 18 de diciembre</p>
       <h1>Camino a Doomsday</h1>
-      <p class="lede">Las 24 películas y series que preparan Avengers: Doomsday, en el orden de la historia. Marca lo que ya has visto y la página calcula cuánto te queda.</p>
+      <p class="lede">Las <span id="lede-n">25</span> películas y series que preparan Avengers: Doomsday, en el orden de la historia. Marca lo que ya has visto y la página calcula cuánto te queda.</p>
       <dl class="stats">
-        <div><dt>Vistos</dt><dd><span id="st-seen">0</span> de <span id="st-total">24</span></dd></div>
+        <div><dt>Vistos</dt><dd><span id="st-seen">0</span> de <span id="st-total">25</span></dd></div>
         <div><dt>Por ver</dt><dd id="st-left">0 h</dd></div>
         <div><dt>Ritmo hasta el estreno</dt><dd id="st-pace">0 h/semana</dd></div>
       </dl>
@@ -36,9 +53,18 @@
           <span class="clock-l">días para<br>el estreno</span>
         </div>
       </div>
-      <figcaption>Cada marca es un título. Larga: imprescindible. Corta: recomendada. Verde: visto.</figcaption>
+      <figcaption>Cada marca es un título. Larga: imprescindible. Corta: recomendada. Verde: visto. Pulsa una marca para ir a su tarjeta.</figcaption>
     </figure>
   </header>
+
+  <details class="how">
+    <summary>Cómo se han elegido los títulos</summary>
+    <div class="how-b">
+      <p><span class="pill p1">Imprescindible</span>Títulos de la lista oficial de 15 que Disney+ recomienda antes de Doomsday, salvo los dos X-Men de Fox, que aquí se dejan fuera. Loki cuenta como dos entradas, una por temporada.</p>
+      <p><span class="pill p2">Recomendada</span>Selección propia a partir de MCU Watchlist: títulos que presentan personajes o tramas confirmados en Doomsday. No forman parte de la lista oficial y puedes saltártelos.</p>
+      <p>Quedan fuera los opcionales, como The Marvels y Spider-Man: Brand New Day. La escena final de esta última parece apuntar al próximo cruce, según NME. ¿Dónde verlas? MCU Watchlist tiene una <a href="https://marvelwatchlist.com/watch/" target="_blank" rel="noopener">guía de streaming por título</a>.</p>
+    </div>
+  </details>
 
   <section class="controls" aria-label="Filtros de la lista">
     <div class="grp">
@@ -56,8 +82,13 @@
         <label><input type="radio" name="fmt" id="fmt-s" value="s"><span>Series <b id="n-fmt-s"></b></span></label>
       </div>
     </div>
-    <label class="tog"><input type="checkbox" id="hide-seen"><span>Ocultar vistas</span></label>
-    <span class="spacer"></span>
+    <div class="grp">
+      <span class="grp-l">Vista</span>
+      <div class="tgs">
+        <label class="tog"><input type="checkbox" id="nospoil" checked><span>Sin spoilers</span></label>
+        <label class="tog"><input type="checkbox" id="hide-seen"><span>Ocultar vistas</span></label>
+      </div>
+    </div>
     <div class="reset" id="reset-box" hidden>
       <button type="button" class="link" id="reset">Borrar progreso</button>
       <span id="reset-ask" hidden>
@@ -88,17 +119,42 @@
     </section>
   </main>
 
+  <details class="sync">
+    <summary>Guardar o mover mi progreso</summary>
+    <div class="sync-b">
+      <div class="sync-col">
+        <label class="sync-l" for="code-out">Tu código</label>
+        <textarea id="code-out" readonly rows="3" spellcheck="false" placeholder="Marca algún título y aquí aparecerá tu código."></textarea>
+        <div class="sync-row">
+          <button type="button" class="btn" id="copy">Copiar código</button>
+          <span class="sync-msg" id="copy-msg" role="status"></span>
+        </div>
+      </div>
+      <div class="sync-col">
+        <label class="sync-l" for="code-in">Pegar un código de otro dispositivo</label>
+        <textarea id="code-in" rows="3" spellcheck="false" placeholder="CD1:..."></textarea>
+        <div class="sync-row">
+          <button type="button" class="btn" id="import">Importar</button>
+          <span class="sync-msg" id="import-msg" role="status"></span>
+        </div>
+        <p class="sync-h">Los títulos del código se suman a los que ya tienes marcados.</p>
+      </div>
+    </div>
+  </details>
+
   <footer class="foot">
-    <p>Selección basada en la lista oficial de 15 títulos de Disney+, ampliada con títulos recomendados por MCU Watchlist. Las duraciones son aproximadas y las series cuentan por temporada completa.</p>
+    <p>Selección basada en la lista oficial de 15 títulos de Disney+, ampliada con títulos recomendados por MCU Watchlist. Las duraciones son aproximadas y cada serie cuenta por temporada completa.</p>
     <p>Fuentes:
-      <a href="https://www.nme.com/news/film/every-marvel-film-and-disney-tv-show-to-watch-before-avengers-doomsday-3964787">NME</a>,
-      <a href="https://deadline.com/gallery/15-things-to-watch-before-avengers-doomsday-marvel-disney-plus/">Deadline</a>,
-      <a href="https://marvelwatchlist.com/before-doomsday/">MCU Watchlist</a>.
+      <a href="https://www.nme.com/news/film/every-marvel-film-and-disney-tv-show-to-watch-before-avengers-doomsday-3964787" target="_blank" rel="noopener">NME</a>,
+      <a href="https://deadline.com/gallery/15-things-to-watch-before-avengers-doomsday-marvel-disney-plus/" target="_blank" rel="noopener">Deadline</a>,
+      <a href="https://marvelwatchlist.com/before-doomsday/" target="_blank" rel="noopener">MCU Watchlist</a>.
       Tu progreso se guarda solo en este navegador.
     </p>
   </footer>
 </div>
 
+<script src="data.js"></script>
 <script src="script.js"></script>
+<script src="register-sw.js"></script>
 </body>
 </html>
