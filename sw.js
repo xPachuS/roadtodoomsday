@@ -1,6 +1,6 @@
 /* Service worker: guarda la web en caché para abrirla sin conexión.
    Si cambias algún fichero, sube el número de CACHE para que se actualice. */
-const CACHE = "camino-a-doomsday-v7";
+const CACHE = "camino-a-doomsday-v8";
 const ASSETS = [
   "./",
   "index.html",
@@ -11,7 +11,9 @@ const ASSETS = [
   "manifest.webmanifest",
   "icon-192.png",
   "icon-512.png",
-  "apple-touch-icon.png"
+  "apple-touch-icon.png",
+  "archivo.woff2",
+  "hanken-grotesk.woff2"
 ];
 
 self.addEventListener("install", (event) => {
