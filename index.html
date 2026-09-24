@@ -6,8 +6,8 @@
 <title>Camino a Doomsday</title>
 <meta name="description" content="Las películas y series del MCU que preparan Avengers: Doomsday, en el orden de la historia, con tu progreso y el ritmo semanal que necesitas.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0D0D0C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F5F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0F0D" media="(prefers-color-scheme: dark)">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -22,6 +22,8 @@
 <meta property="og:image" content="https://TU-USUARIO.github.io/camino-a-doomsday/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 
+<link rel="preload" href="archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,20 +31,23 @@
 
 <div class="wrap">
   <header class="top">
-    <p class="eyebrow">MCU · Estreno el 18 de diciembre</p>
-    <h1>Camino a Doomsday</h1>
-    <p class="lede">Lo que hay que ver antes de Avengers: Doomsday, en el orden de la historia.</p>
+    <div>
+      <p class="eyebrow">MCU · Estreno el 18 de diciembre</p>
+      <h1><span>Camino a</span> Doomsday</h1>
+      <p class="lede">Lo que hay que ver antes de Avengers: Doomsday, en el orden de la historia.</p>
+    </div>
+    <div class="count"><b id="days">0</b><span>días para el estreno</span></div>
   </header>
 
-  <dl class="stats">
-    <div><dt>Días para el estreno</dt><dd id="days">0</dd></div>
-    <div><dt>Vistos</dt><dd><span id="st-seen">0</span><small> de <span id="st-total">25</span></small></dd></div>
-    <div><dt>Por ver</dt><dd id="st-left">0 h</dd></div>
-    <div><dt>Ritmo necesario</dt><dd id="st-pace">0</dd></div>
-  </dl>
-
-  <div class="bar" id="bar" role="img" aria-label=""></div>
-  <p class="bar-h">Cada barra es un título. Pulsa una para ir a él.</p>
+  <section class="panel" aria-label="Tu progreso">
+    <dl class="stats">
+      <div><dt>Vistos</dt><dd><span id="st-seen">0</span><small> de <span id="st-total">25</span></small></dd></div>
+      <div><dt>Por ver</dt><dd id="st-left">0 h</dd></div>
+      <div><dt>Ritmo necesario</dt><dd id="st-pace">0</dd></div>
+    </dl>
+    <div class="bar" id="bar" role="img" aria-label=""></div>
+    <p class="bar-h">Cada barra es un título. Pulsa una para ir a él.</p>
+  </section>
 
   <section class="controls" aria-label="Filtros de la lista">
     <div class="row">
