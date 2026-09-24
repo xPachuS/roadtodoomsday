@@ -4,100 +4,63 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Camino a Doomsday</title>
-<meta name="description" content="Las 25 películas y series del MCU que preparan Avengers: Doomsday, en el orden de la historia, con progreso guardado y ritmo semanal.">
+<meta name="description" content="Las películas y series del MCU que preparan Avengers: Doomsday, en el orden de la historia, con tu progreso y el ritmo semanal que necesitas.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#EDEFEC" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0E1512" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0D0C" media="(prefers-color-scheme: dark)">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 
 <!-- Para las vistas previas al compartir el enlace: cambia TU-USUARIO y el nombre del repositorio -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Camino a Doomsday">
-<meta property="og:description" content="Las 25 películas y series del MCU que preparan Avengers: Doomsday, en el orden de la historia.">
+<meta property="og:description" content="Las películas y series del MCU que preparan Avengers: Doomsday, en el orden de la historia.">
 <meta property="og:url" content="https://TU-USUARIO.github.io/camino-a-doomsday/">
 <meta property="og:image" content="https://TU-USUARIO.github.io/camino-a-doomsday/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <noscript><p style="padding:16px;font-family:system-ui,sans-serif">Esta página necesita JavaScript para mostrar la lista y guardar tu progreso.</p></noscript>
 
 <div class="wrap">
-  <header class="hero">
-    <div>
-      <p class="eyebrow">MCU · 2008 a 2026 · Estreno el 18 de diciembre</p>
-      <h1>Camino a Doomsday</h1>
-      <p class="lede">Las <span id="lede-n">25</span> películas y series que preparan Avengers: Doomsday, en el orden de la historia. Marca lo que ya has visto y la página calcula cuánto te queda.</p>
-      <dl class="stats">
-        <div><dt>Vistos</dt><dd><span id="st-seen">0</span> de <span id="st-total">25</span></dd></div>
-        <div><dt>Por ver</dt><dd id="st-left">0 h</dd></div>
-        <div><dt>Ritmo hasta el estreno</dt><dd id="st-pace">0 h/semana</dd></div>
-      </dl>
-    </div>
-    <figure class="clock">
-      <div class="clock-face">
-        <svg viewBox="0 0 240 240" role="img" aria-labelledby="clk-t">
-          <title id="clk-t">Reloj de Doomsday con una marca por título; las marcas verdes son los títulos vistos</title>
-          <g id="ticks"></g>
-          <path d="M120 1 L124.5 8 L120 15 L115.5 8 Z" fill="var(--brass)"></path>
-        </svg>
-        <div class="clock-c">
-          <span class="clock-n" id="days">0</span>
-          <span class="clock-l">días para<br>el estreno</span>
-        </div>
-      </div>
-      <figcaption>Cada marca es un título. Larga: imprescindible. Media: recomendada. Corta: opcional. Verde: visto. Pulsa una marca para ir a su tarjeta.</figcaption>
-    </figure>
+  <header class="top">
+    <p class="eyebrow">MCU · Estreno el 18 de diciembre</p>
+    <h1>Camino a Doomsday</h1>
+    <p class="lede">Lo que hay que ver antes de Avengers: Doomsday, en el orden de la historia.</p>
   </header>
 
-  <details class="how">
-    <summary>Cómo se han elegido los títulos</summary>
-    <div class="how-b">
-      <p><span class="pill p1">Imprescindible</span>Títulos de la lista oficial de 15 que Disney+ recomienda antes de Doomsday, salvo los dos X-Men de Fox, que aquí se dejan fuera. Loki cuenta como dos entradas, una por temporada.</p>
-      <p><span class="pill p2">Recomendada</span>Selección propia a partir de MCU Watchlist: títulos que presentan personajes o tramas confirmados en Doomsday. No forman parte de la lista oficial y puedes saltártelos.</p>
-      <p><span class="pill p3">Opcional</span>Conexión menor o aún sin confirmar: The Marvels, que presenta a Beast, y Spider-Man: Brand New Day, cuya escena final parece apuntar al próximo cruce, según NME. No se muestran salvo que elijas "+ Opcionales".</p>
-      <p>El nivel que elijas define todo lo que ves: la lista, el reloj, las horas que te quedan y el ritmo semanal. ¿Dónde verlas? MCU Watchlist tiene una <a href="https://marvelwatchlist.com/watch/" target="_blank" rel="noopener">guía de streaming por título</a>.</p>
-    </div>
-  </details>
+  <dl class="stats">
+    <div><dt>Días para el estreno</dt><dd id="days">0</dd></div>
+    <div><dt>Vistos</dt><dd><span id="st-seen">0</span><small> de <span id="st-total">25</span></small></dd></div>
+    <div><dt>Por ver</dt><dd id="st-left">0 h</dd></div>
+    <div><dt>Ritmo necesario</dt><dd id="st-pace">0</dd></div>
+  </dl>
+
+  <div class="bar" id="bar" role="img" aria-label=""></div>
+  <p class="bar-h">Cada barra es un título. Pulsa una para ir a él.</p>
 
   <section class="controls" aria-label="Filtros de la lista">
-    <div class="grp">
-      <span class="grp-l" id="g-lv">Nivel</span>
-      <div class="seg" role="radiogroup" aria-labelledby="g-lv">
-        <label><input type="radio" name="lv" id="lv-ess" value="ess"><span>Imprescindibles <b id="n-lv-ess"></b></span></label>
-        <label><input type="radio" name="lv" id="lv-rec" value="rec" checked><span>+ Recomendadas <b id="n-lv-rec"></b></span></label>
-        <label><input type="radio" name="lv" id="lv-opt" value="opt"><span>+ Opcionales <b id="n-lv-opt"></b></span></label>
+    <div class="row">
+      <span class="lab" id="g-lv">Mostrar</span>
+      <div class="chips" role="group" aria-labelledby="g-lv">
+        <label class="chip lvt"><input type="checkbox" id="lv-1" checked><span>Imprescindibles <b id="n-lv-1"></b></span></label>
+        <label class="chip lvt"><input type="checkbox" id="lv-2" checked><span>Recomendadas <b id="n-lv-2"></b></span></label>
+        <label class="chip lvt"><input type="checkbox" id="lv-3"><span>Opcionales <b id="n-lv-3"></b></span></label>
       </div>
     </div>
-    <div class="grp">
-      <span class="grp-l" id="g-fmt">Formato</span>
-      <div class="seg" role="radiogroup" aria-labelledby="g-fmt">
-        <label><input type="radio" name="fmt" id="fmt-all" value="all" checked><span>Todo</span></label>
-        <label><input type="radio" name="fmt" id="fmt-m" value="m"><span>Películas <b id="n-fmt-m"></b></span></label>
-        <label><input type="radio" name="fmt" id="fmt-s" value="s"><span>Series <b id="n-fmt-s"></b></span></label>
+    <div class="row">
+      <span class="lab" id="g-fmt">Formato</span>
+      <div class="chips" role="radiogroup" aria-labelledby="g-fmt">
+        <label class="chip"><input type="radio" name="fmt" id="fmt-all" value="all" checked><span>Todo</span></label>
+        <label class="chip"><input type="radio" name="fmt" id="fmt-m" value="m"><span>Películas <b id="n-fmt-m"></b></span></label>
+        <label class="chip"><input type="radio" name="fmt" id="fmt-s" value="s"><span>Series <b id="n-fmt-s"></b></span></label>
       </div>
-    </div>
-    <div class="grp">
-      <span class="grp-l">Vista</span>
-      <div class="tgs">
-        <label class="tog"><input type="checkbox" id="nospoil" checked><span>Sin spoilers</span></label>
-        <label class="tog"><input type="checkbox" id="hide-seen"><span>Ocultar vistas</span></label>
-      </div>
-    </div>
-    <div class="reset" id="reset-box" hidden>
-      <button type="button" class="link" id="reset">Borrar progreso</button>
-      <span id="reset-ask" hidden>
-        ¿Borrar <b id="reset-n">0</b> marcados?
-        <button type="button" class="link danger" id="reset-yes">Sí, borrar</button>
-        <button type="button" class="link" id="reset-no">Cancelar</button>
-      </span>
+      <label class="chip end"><input type="checkbox" id="hide-seen"><span>Ocultar vistas</span></label>
     </div>
   </section>
 
@@ -108,55 +71,42 @@
     <p class="empty" id="empty" hidden>No queda nada por ver con estos filtros. Nos vemos en cines el 18 de diciembre.</p>
 
     <section class="final" aria-label="Estreno">
-      <ol class="list">
-        <li class="item">
-          <span class="node" aria-hidden="true"></span>
-          <div class="card">
-            <span class="ttl">Avengers: Doomsday</span>
-            <span class="dsc">Tres universos contra Victor von Doom.</span>
-            <span class="meta"><span>18 de diciembre de 2026</span><span>En cines</span></span>
-          </div>
-        </li>
-      </ol>
+      <p class="final-d">18 de diciembre de 2026 · En cines</p>
+      <p class="final-t">Avengers: Doomsday</p>
+      <p class="final-s">Tres universos contra Victor von Doom.</p>
     </section>
   </main>
 
-  <details class="sync">
-    <summary>Guardar o mover mi progreso</summary>
-    <div class="sync-b">
-      <div class="sync-col">
-        <label class="sync-l" for="code-out">Tu código</label>
-        <textarea id="code-out" readonly rows="3" spellcheck="false" placeholder="Marca algún título y aquí aparecerá tu código."></textarea>
-        <div class="sync-row">
-          <button type="button" class="btn" id="copy">Copiar código</button>
-          <span class="sync-msg" id="copy-msg" role="status"></span>
-        </div>
-      </div>
-      <div class="sync-col">
-        <label class="sync-l" for="code-in">Pegar un código de otro dispositivo</label>
-        <textarea id="code-in" rows="3" spellcheck="false" placeholder="CD1:..."></textarea>
-        <div class="sync-row">
-          <button type="button" class="btn" id="import">Importar</button>
-          <span class="sync-msg" id="import-msg" role="status"></span>
-        </div>
-        <p class="sync-h">Los títulos del código se suman a los que ya tienes marcados.</p>
-      </div>
+  <details class="more">
+    <summary>Cómo se han elegido</summary>
+    <div class="more-b">
+      <p><span class="lv lv1">Imprescindible</span> Títulos de la lista oficial de 15 que Disney+ recomienda antes de Doomsday, salvo los dos X-Men de Fox, que aquí se dejan fuera. Loki cuenta como dos entradas, una por temporada.</p>
+      <p><span class="lv lv2">Recomendada</span> Selección propia a partir de MCU Watchlist: títulos que presentan personajes o tramas confirmados en Doomsday. No forman parte de la lista oficial y puedes saltártelos.</p>
+      <p><span class="lv lv3">Opcional</span> Conexión menor o aún sin confirmar: The Marvels, que enlaza con los X-Men, y Spider-Man: Brand New Day, cuya escena final parece apuntar al próximo cruce, según NME. No se muestran salvo que marques "Opcionales".</p>
+      <p>Los niveles que marques definen todo lo que ves: la lista, las barras, las horas que te quedan y el ritmo semanal. Ninguna descripción cuenta la trama. ¿Dónde verlas? MCU Watchlist tiene una <a href="https://marvelwatchlist.com/watch/" target="_blank" rel="noopener">guía de streaming por título</a>.</p>
     </div>
   </details>
 
   <footer class="foot">
-    <p>Selección basada en la lista oficial de 15 títulos de Disney+, ampliada con títulos recomendados por MCU Watchlist. Las duraciones son aproximadas y cada serie cuenta por temporada completa.</p>
+    <p>Selección basada en la lista oficial de 15 títulos de Disney+, ampliada con títulos recomendados por MCU Watchlist. Duraciones aproximadas; cada serie cuenta por temporada completa. Tu progreso se guarda solo en este navegador.</p>
     <p>Fuentes:
       <a href="https://www.nme.com/news/film/every-marvel-film-and-disney-tv-show-to-watch-before-avengers-doomsday-3964787" target="_blank" rel="noopener">NME</a>,
       <a href="https://deadline.com/gallery/15-things-to-watch-before-avengers-doomsday-marvel-disney-plus/" target="_blank" rel="noopener">Deadline</a>,
       <a href="https://marvelwatchlist.com/before-doomsday/" target="_blank" rel="noopener">MCU Watchlist</a>.
-      Tu progreso se guarda solo en este navegador.
+      Proyecto de aficionado, sin relación con Marvel Studios ni Disney.
     </p>
+    <div class="reset" id="reset-box" hidden>
+      <button type="button" class="link" id="reset">Borrar progreso</button>
+      <span id="reset-ask" hidden>
+        ¿Borrar <b id="reset-n">0</b> marcados?
+        <button type="button" class="link danger" id="reset-yes">Sí, borrar</button>
+        <button type="button" class="link" id="reset-no">Cancelar</button>
+      </span>
+    </div>
   </footer>
 </div>
 
 <script src="data.js"></script>
 <script src="script.js"></script>
-<script src="register-sw.js"></script>
 </body>
 </html>
