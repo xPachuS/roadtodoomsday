@@ -1,22 +1,17 @@
 /* Service worker: guarda la web en caché para abrirla sin conexión.
    Si cambias algún fichero, sube el número de CACHE para que se actualice. */
-const CACHE = "camino-a-doomsday-v3";
+const CACHE = "camino-a-doomsday-v7";
 const ASSETS = [
   "./",
   "index.html",
   "styles.css",
   "script.js",
   "data.js",
-  "register-sw.js",
   "favicon.svg",
   "manifest.webmanifest",
-  "icons/icon-192.png",
-  "icons/icon-512.png",
-  "icons/apple-touch-icon.png",
-  "fonts/archivo-latin-wdth-normal.woff2",
-  "fonts/hanken-grotesk-latin-wght-normal.woff2",
-  "fonts/ibm-plex-mono-latin-400-normal.woff2",
-  "fonts/ibm-plex-mono-latin-500-normal.woff2"
+  "icon-192.png",
+  "icon-512.png",
+  "apple-touch-icon.png"
 ];
 
 self.addEventListener("install", (event) => {
