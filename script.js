@@ -72,21 +72,22 @@
   function build() {
     var html = "";
     ERAS.forEach(function (e, ei) {
-      html += '<section class="era" data-era="' + ei + '"><header class="era-h"><h2>' + esc(e.name) + '</h2>' +
-        '<p class="era-m">' + esc(e.sub) + ' · <span id="era-c' + ei + '"></span></p></header><ol class="list">';
+      html += '<section class="era" data-era="' + ei + '"><header class="era-h"><div><p class="era-k">Parte ' + (ei + 1) + ' · ' + esc(e.sub) + '</p>' +
+        '<h2>' + esc(e.name) + '</h2></div><p class="era-m" id="era-c' + ei + '"></p></header><ol class="list">';
       D.forEach(function (d, i) {
         if (d.era !== ei) return;
         var series = d.kind === "s", lv = LEVEL[d.level];
-        html += '<li class="item' + (d.level === 3 ? " opt" : "") + '" data-i="' + i + '">' +
+        html += '<li class="item' + (d.level === 3 ? " opt" : "") + '" data-i="' + i + '" style="--i:' + i + '">' +
           '<input class="chk" type="checkbox" id="c-' + d.id + '">' +
           '<label class="body" for="c-' + d.id + '">' +
           '<span class="mark" aria-hidden="true"><span class="num">' + (i + 1) + '</span>' + CK + '</span>' +
           '<span class="txt">' +
+          '<span class="tag"></span>' +
           '<span class="ttl">' + esc(d.title) + '</span>' +
           '<span class="dsc">' + esc(d.neutral) + '</span>' +
           '<span class="why"><b>Doomsday</b>' + esc(d.why) + '</span>' +
           '<span class="meta">' +
-          '<span class="' + lv[0] + '">' + lv[1] + '</span>' +
+          '<span class="lv ' + lv[0] + '">' + lv[1] + '</span>' +
           '<span>' + (series ? "Serie" : "Película") + ' · ' + esc(d.year) + '</span>' +
           '<span>' + esc(TH[d.thread]) + '</span>' +
           '<span>' + (series ? "≈ " : "") + dur(d.minutes) + '</span>' +
@@ -120,6 +121,7 @@
         d: d, li: li,
         chk: li.querySelector(".chk"),
         num: li.querySelector(".num"),
+        tag: li.querySelector(".tag"),
         upto: li.querySelector(".upto")
       };
     });
@@ -138,7 +140,7 @@
     D.forEach(function (d, i) { if (inScope(d)) scope.push(i); });
     if (barKey !== levelList().join()) buildBar(scope);
 
-    var nSeen = 0, remain = 0, allPrev = true, visibleCount = 0, pos = 0, mCount = 0, sCount = 0;
+    var nextRow = null, nSeen = 0, remain = 0, allPrev = true, visibleCount = 0, pos = 0, mCount = 0, sCount = 0;
     var eraSeen = [], eraTot = [], eraVis = [];
     ERAS.forEach(function (_, ei) { eraSeen[ei] = 0; eraTot[ei] = 0; eraVis[ei] = 0; });
 
@@ -146,6 +148,9 @@
       var d = r.d, s = !!seen[d.id], sc = inScope(d);
       r.chk.checked = s;
       r.li.classList.toggle("seen", s);
+      var isNext = sc && !s && !nextRow;
+      if (isNext) nextRow = r;
+      r.li.classList.toggle("next", isNext);
       var ok = false;
       if (sc) {
         pos++;
@@ -175,6 +180,7 @@
       if (last) last.classList.add("last");
     });
 
+    if (nextRow) nextRow.tag.textContent = nSeen ? "Siguiente" : "Empieza por aquí";
     var total = scope.length, seenAll = Object.keys(seen).length;
     $("st-total").textContent = total;
     $("n-fmt-m").textContent = mCount;
